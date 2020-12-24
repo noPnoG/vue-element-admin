@@ -1,6 +1,5 @@
 <template>
   <div>
-
     <table class="printTable">
       <tr>
         <th class="title">采购订单号</th>
@@ -62,16 +61,14 @@ export default {
   methods: {
     getQRcode() {
       this.qrcode = new QRCode(this.$refs.qrcode, {
-			        width: 100, // 设置宽度，单位像素
-			        height: 100, // 设置高度，单位像素
-			        text: this.qrCode.id // 设置二维码内容或跳转地址
+        width: 100, // 设置宽度，单位像素
+        height: 100, // 设置高度，单位像素
+        text: this.qrCode.id // 设置二维码内容或跳转地址
       })
     }
   }
 }
-
 </script>
-
 <style lang="scss" scoped>
 
     table,th,td{
@@ -90,8 +87,15 @@ export default {
         page-break-after:always;
     }
     @media print {
-        .pagebreak{
-        page-break-after:always;
+      .pagebreak{
+          page-break-after:always;
+      }
     }
+</style>
+<style >
+  @media print {
+      #app .main-container{
+          margin-left: 0 !important;
+      }
     }
 </style>

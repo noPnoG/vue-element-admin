@@ -35,7 +35,7 @@ Print.prototype = {
       str += styles[i].outerHTML;
     }
     str += "<style>" + (this.options.noPrint ? this.options.noPrint : '.no-print') + "{display:none;}</style>";
-
+    console.log('style',str)
     return str;
   },
 
@@ -81,7 +81,8 @@ Print.prototype = {
     // 包裹要打印的元素
     // fix: https://github.com/xyl66/vuePlugs_printjs/issues/36
     let outerHTML = this.wrapperRefDom(this.dom).outerHTML
-    return outerHTML;
+    // return  this.dom.outerHTML;
+    return outerHTML
   },
   // 向父级元素循环，包裹当前需要打印的元素
   // 防止根级别开头的 css 选择器不生效
@@ -102,7 +103,7 @@ Print.prototype = {
 
       currDom = currDom.parentElement
     }
-
+    console.log('wrapperRefDom',prevDom)
     return prevDom
   },
 

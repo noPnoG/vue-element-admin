@@ -67,9 +67,9 @@ export default {
   methods: {
     getQRcode() {
       this.qrcode = new QRCode(this.$refs.qrcode, {
-			        width: 100, // 设置宽度，单位像素
-			        height: 100, // 设置高度，单位像素
-			        text: this.qrCode.id // 设置二维码内容或跳转地址
+        width: 100, // 设置宽度，单位像素
+        height: 100, // 设置高度，单位像素
+        text: this.qrCode.id // 设置二维码内容或跳转地址
       })
     }
   }
@@ -109,6 +109,9 @@ export default {
         display: block;
     }
     @media print {
+        .main-container{
+          margin-left: 0;
+        }
         .fixed{
             display: block
         }

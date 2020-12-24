@@ -1,8 +1,12 @@
 <template>
   <div>
+    <el-button type="primary" @click="()=>{$print($refs.elTable)}">打印el-tale</el-button>
     <el-button type="primary" @click="toPrint">打 印二维码</el-button>
     <el-button type="primary" @click="()=>{$print($refs.printTableList)}">打印多个二维码表</el-button>
     <el-button type="primary" @click="dialogVisible=true">查看二维码</el-button>
+    <el-table ref="elTable" :data="qrCodeList" style="width:80%">
+      <el-table-column v-for="(item,key) in qrCode" :key="key" :label="key" :prop="key" />
+    </el-table>
     <el-dialog
       title="二维码"
       :visible.sync="dialogVisible"
@@ -25,7 +29,6 @@
 </template>
 <script>
 import qrCodeTable from './components/qrCodeTable'
-import qrCodeTableList from './components/qrCodeList'
 import printContainer from './components/printContainer'
 const qrCode = {
   id: '12',
@@ -50,7 +53,6 @@ const qrCode1 = {
 export default {
   components: {
     qrCodeTable,
-    qrCodeTableList,
     printContainer
   },
   data() {
@@ -78,3 +80,8 @@ export default {
   }
 }
 </script>
+<style lang="scss" scoped>
+  @page {
+    size: A4;
+  }
+</style>
