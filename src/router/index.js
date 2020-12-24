@@ -100,6 +100,19 @@ export const asyncRoutes = [
       }
     ]
   },
+  {
+    path: '/print',
+    component: Layout,
+    redirect: '/print/test',
+    children: [
+      {
+        path: '/print/test',
+        component: () => import('@/views/print'),
+        name: 'print',
+        meta: { title: '打印', icon: 'star', roles: ['admin'] }
+      }
+    ]
+  },
   { path: '*', redirect: '/404', hidden: true }
 ]
 
